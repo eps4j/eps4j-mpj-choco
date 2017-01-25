@@ -1,0 +1,95 @@
+#+STARTUP: overview hidestars logdone
+#+COLUMNS: %38ITEM(Details) %7TODO(To Do) %TAGS(Context) 
+#+OPTIONS: tags:t timestamp:t todo:t TeX:t LaTeX:t          
+#+OPTIONS: skip:t @:t ::t |:t ^:t f:t
+#+LANGUAGE: en
+* EPS4J: Embarrassingly Parallel Search for Java
+
+[[https://travis-ci.org/eps4j/eps4j-choco][file:https://travis-ci.org/eps4j/eps4j-choco.svg?branch=master]]
+
+eps4j is a Java library that proposes a framework for using Embarrassingly Parallel Search in constraints solvers.
+eps4j-choco parallelizes the [[http://choco-solver.org/][choco solver]].
+
+
+eps4j-choco is distributed under BSD 3-Clause License (Copyright (c) 2017, Arnaud Malapert, Université Nice Sophia Antipolis). 
+
+* Documentation, Support and Issues
+  
+ Look for the most up-to-date documentation on the web site, or javadoc.
+ 
+ Use the [[https://github.com/eps4j/eps4j-choco/issues][issue tracker]] here on GitHub to report issues. 
+ As far as possible, provide a [[https://en.wikipedia.org/wiki/Minimal_Working_Example][Minimal Working Example]].
+
+* Download and Installation
+
+  In the following, we distinguish two usages of eps4j-choco:
+    - as a standalone application: the jar file includes all required dependencies,
+    - as a library: the jar file excludes all dependencies.
+
+** Prerequisites 
+  This project works on 32 bits and 64 bits environment. 
+
+  This project requires:
+
+  - Java Virtual Machine 1.8+ 
+  - Apache Maven 3.2.3+
+  - [[http://mpj-express.org/][MPJ Express Project]] 0.44+
+  - [[https://github.com/sstephenson/bats][Bats]] (for integration tests only)
+  
+  The project also requires the installation of [[http://github.com/eps4j/eps4j-core][eps4j-core]].
+** Inside a maven project
+
+eps4j-choco is not (yet) available on Maven Central Repository. 
+First, you must build from source and install it into your local .m2 repository.
+Then, you only have to edit your pom.xml to declare the following library dependency:
+
+#+BEGIN_EXAMPLE
+<dependency>
+   <groupId>org.eps4j</groupId>
+   <artifactId>eps4j-choco</artifactId>
+   <version>0.0.1-SNAPSHOT</version>
+</dependency>
+
+#+END_EXAMPLE
+
+** As a stand-alone application
+
+ The jar file contains all required dependencies. 
+ The next step is simply to add the jar file to your classpath of your application. 
+ Note that if your program depends on dependencies declared in the jar file, you should consider using eps4j-choco as a library.
+ 
+** As a library
+
+ The jar file does not contains any dependencies, as of being used as a dependency of another application. 
+ The next step is to add the jar file to your classpath of your application and also add the required dependencies.
+
+** Building from source
+ 
+   This project uses the Cross-platform Maven build system. 
+   : mvn clean package 
+   or to skip unit tests
+   : mvn clean package -DskipTests=true  
+
+*** Integration tests 
+    Run integration tests (require bats) 
+    : mvn verify 
+   
+*** Installing
+
+    Once the project has been built, execute   
+    : mvn install
+    or to skip all tests (unit and integration) 
+    : mvn install -DskipTests=true  
+
+** Dependencies
+
+   The required dependencies for compilation are:
+    #+BEGIN_SRC sh :results output :exports results
+      ## must update the line ranges when the dependencies change.
+      mvn dependency\:list -DexcludeTransitive=true | sed -n '10,14 s/\[INFO\]\s*//p'  
+    #+END_SRC
+
+    #+RESULTS:
+
+   They are available on Maven Repository (http://mvnrepository.com/).
+ 
