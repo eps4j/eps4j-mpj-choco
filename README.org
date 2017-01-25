@@ -5,6 +5,7 @@
 #+LANGUAGE: en
 * EPS4J: Embarrassingly Parallel Search for Java
 
+[[https://opensource.org/licenses/BSD-3-Clause][https://img.shields.io/badge/License-BSD%203--Clause-blue.svg]]
 [[https://travis-ci.org/eps4j/eps4j-choco][file:https://travis-ci.org/eps4j/eps4j-choco.svg?branch=master]]
 
 eps4j is a Java library that proposes a framework for using Embarrassingly Parallel Search in constraints solvers.
