@@ -26,9 +26,10 @@ before_install:
   - unzip /tmp/mpj-v0_44.zip
   - export MPJ_HOME=$PWD/mpj-v0_44/
   - export PATH=$PATH:$MPJ_HOME/bin/
-  - git clone git@github.com:eps4j/eps4j-core.git
-  - cd eps4j-core
-  - mvn install -B -skipTests=true
+  - wget https://github.com/eps4j/eps4j-core/archive/master.zip
+  - unzip master.zip 
+  - cd eps4j-core-master/
+  - mvn clean install -DskipTests=true
 # install:
 # - npm install travis-ping
 branches:
