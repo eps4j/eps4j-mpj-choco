@@ -23,13 +23,15 @@ before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq bats
   - wget https://downloads.sourceforge.net/project/mpjexpress/releases/mpj-v0_44.zip? -O /tmp/mpj-v0_44.zip
-  - unzip /tmp/mpj-v0_44.zip
+  - unzip -q /tmp/mpj-v0_44.zip
   - export MPJ_HOME=$PWD/mpj-v0_44/
   - export PATH=$PATH:$MPJ_HOME/bin/
   - wget https://github.com/eps4j/eps4j-core/archive/master.zip
-  - unzip master.zip 
+  - unzip -q master.zip 
   - cd eps4j-core-master/
   - mvn clean install -DskipTests=true
+  - cd ..
+  - rm -fr eps4j-core-master/
 # install:
 # - npm install travis-ping
 branches:
